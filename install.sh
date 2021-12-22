@@ -16,7 +16,7 @@ sudo pacman -S --noconfirm dina-font tamsyn-font bdf-unifont ttf-bitstream-vera 
 
 
 #Instalado drivers gráficos,Display manager, DE e outras coisas
-sudo pacman -S --noconfirm lolcat cmatrix  cowsay neofeth figlet xf86-video-intel xorg i3-gaps firefox rofi termite dmenu terminator lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings htop bashtop feh lxappearance thunar nautilus termite
+sudo pacman -S --noconfirm lolcat cmatrix cowsay neofeth figlet xf86-video-intel xorg i3-gaps firefox rofi termite dmenu terminator lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings htop bashtop feh lxappearance thunar nautilus termite
 
 sudo systemctl enable lightdm.service
 /bin/echo -e "\e[1;32mREINICIANDO EM 5..4..3..2..1..\e[0m"
