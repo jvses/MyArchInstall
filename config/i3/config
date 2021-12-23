@@ -13,8 +13,10 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
+#font pango:monospace 8 
 #font pango:Ubuntu Regular 10
-font pango:Gloria Hallelujah Bold 10
+font pango:Gloria Hallelujah Bold 8  
+#gloria hallelujah regular
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -49,8 +51,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 #bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+10 i3blocks
 
 # Trava de tela configurada com i3lock
-bindsym $mod+x exec i3lock
-
+bindsym $mod+x exec ~/.config/scripts/lock
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -69,9 +70,9 @@ bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
-# bindsym $mod+d exec rofi -show run -show-icons
-# bindsym $mod+d exec sh ~/.config/rofi/launchers/slate/launcher.sh
-bindsym $mod+d exec sh ~/.config/rofi/launchers/misc/launcher.sh
+#bindsym $mod+d exec rofi -show run -show-icons
+bindsym $mod+d exec sh ~/.config/rofi/launchers/slate/launcher.sh
+#bindsym $mod+d exec sh ~/.config/rofi/launchers/misc/launcher.sh
 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
@@ -81,7 +82,7 @@ bindsym $mod+d exec sh ~/.config/rofi/launchers/misc/launcher.sh
 
 # Mais aplicações da customização do rofi
 bindsym $mod+m exec --no-startup-id menu_mpd
-bindsym $mod+n exec --no-startup-id menu_network
+bindsym $mod+n exec --no-startup-id ~/.config/rofi/bin/menu_network
 bindsym $mod+p exec --no-startup-id ~/.config/rofi/bin/menu_powermenu
 
 
@@ -129,11 +130,24 @@ bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
 
+
+
+
 # focus the parent container
 bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
+
+
+
+
+# Esconder título das janelas
+for_window [class="^.*"] border pixel 2
+
+
+
+
 
 # default gaps
 gaps inner 5
@@ -261,9 +275,6 @@ mode "$mode_gaps_left" {
         bindsym Escape mode "default"
 }
 
-# travar tela com i3lock
-
-
 
 
 # Define names for default workspaces for which we configure key bindings later on.
@@ -360,12 +371,14 @@ client.urgent           $ubgcolor 	$ubgcolor 	$textcolor 	$ubgcolor
 # finds out, if available)
 #bar {
 #        status_command i3blocks -c /home/joao/.config/i3blocks/i3blocks.conf
+#	status_command i3tatus
 #	position top
 #}
 
 #Colocando o BackGround
 #exec_always feh --bg-scale --randomize ~/Imagens/Wallpapers/*
 exec_always feh --bg-scale --randomize ~/Imagens/Adventure/Wall1.jpg
+#exec_always feh --bg-scale ~/Imagens/Adventure/balck.jpeg
 #exec_always feh --bg-scale --randomize ~/Imagens/Wallpapers/gifs/Wall5.gif
 #exec_always --no-startup-id killall back4.sh 
 #exec_always --no-startup-id /home/joao/Programas/foo-Wallpaper-Feh-Gif/back4.sh 0.03 ~/Programas/foo-Wallpaper-Feh-Gif/gif/beautycity.gif
@@ -388,11 +401,14 @@ for_window [class="TelegramDesktop"] move to workspace $ws4
 # scrot & gimp - select window or rectangle
 #bindsym Shift+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
 
+#Correção da fonte siji do polybar
+#exce_always --no-startup-id ~/fixpoly
 
 
 # Execução do Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
+#
 
 # Windows Compositor
 exec_always picom -f
+#exec_always picom --shadow-opacity=1
