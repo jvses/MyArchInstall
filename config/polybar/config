@@ -15,10 +15,14 @@
 ;   The README contains a lot of information
 ;
 ;==========================================================
+# Usar depois pra fazer um BMO
+# • ‿ •
+# 
+
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #103B34
+background = #172025
 background-alt = #000000 
 #578D80
 ;foreground = ${xrdb:color7:#222}
@@ -28,12 +32,22 @@ foreground-alt = #66BEB0
 primary = #ffb52a
 secondary = #e60053
 alert = #FC7D84
+#Cores Adventure Time Unixporn Template
+verde1 = #D2FCE3
+verde2 = #66BEB0
+verde3 = #578D80
+verde4 = #103B34
+laranja1 = #FDCA95
+laranja2 = #FEBAA3
+laranja3 = #FE9F8B
+laranja4 = #FD7E85
+adventure-bg = #172025
 
 [bar/example]
 bottom = true
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 22
+height = 24
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 6.0
@@ -46,7 +60,7 @@ line-size = 2
 line-color = #f00
 
 
-border-size = 1
+border-size = 3
 border-color = #00000000
 
 padding-left = 0
@@ -56,10 +70,14 @@ module-margin-left = 0
 module-margin-right = 0 
 
 font-0 = fixed:pixelsize=10;1
+#font-0 = Gloria Hallelujah:style=Regular:size=10;2
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
-font-3 = FontAwesome:size=10
-
+font-3 = FontAwesome:size=12;2
+font-4 = Hack Nerd Font:style=Regular:size=12;2
+font-5 = adventure:size=15;2
+font-6 = adventure:size=24;4
+font-7 = Gloria Hallelujah:style=Regular:size=10;1
 ; Fonts are defined using <font-name>;<vertical-offset>
 ; Font names are specified using a fontconfig pattern.
 ;   font-0 = NotoSans-Regular:size=8;2
@@ -67,11 +85,9 @@ font-3 = FontAwesome:size=10
 ;   font-2 = Termsynu:size=8;-1
 ;   font-3 = FontAwesome:size=10
 
-
-
-modules-left = bspwm i3
+modules-left = bmo bspwm i3
 modules-center = xwindow
-modules-right = filesystem xbacklight alsa memory cpu battery date powermenu
+modules-right = filesystem xbacklight alsa battery date powermenu
 # coisas que tirei da amostra padrão
 # pulseaudio xkeyboard memory cpu wlan eth date temperature mpd wireless-network
 # network
@@ -100,12 +116,21 @@ cursor-scroll = ns-resize
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
 
-format-background = #103B34
-format-foreground = #D2FDE2
-#format-prefix-foreground = ${colors.foreground-alt}
-#format-prefix-underline = ${colors.secondary}
+#label-active = %token%
+
+; This tells the bar to use Roboto when rendering the label
+label-font = 8
+
+; Using raw formatting tags, you can mix fonts.
+; %{T3} tells the bar to use Noto Sans and %{T-} resets it to default.
+#label-inactive = %{T3}Inactive%{T-} %time%
+
+label = " %title:0:30:...%"
+#format-background = #103B34
+format-foreground = ${colors.verde1}
+format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-underline = ${colors.secondary}
 format-underline = #D2FDE2
 
 [module/xkeyboard]
@@ -123,6 +148,35 @@ label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
 label-indicator-underline = ${colors.secondary}
+
+[module/bmo]
+type = custom/text
+content-font = 7
+content = "  "
+#format-background = ${colors.verde1}
+#format-foreground = ${colors.adventure-bg}
+content-background = ${colors.verde1}
+content-foreground = ${colors.adventure-bg}
+content-padding = 1
+
+[module/bmo2]
+type = custom/text
+content = "  "
+content-font = 7
+content-background = ${colors.verde1}
+content-foreground = ${colors.adventure-bg}
+content-padding = 1
+
+[module/coroa]
+type = custom/text
+#label-active = %token%
+
+; This tells the bar to use Roboto when rendering the label
+label-active-font = 7
+label-active = "  "
+; Using raw formatting tags, you can mix fonts.
+; %{T3} tells the bar to use Noto Sans and %{T-} resets it to default.
+label-inactive = %{T3}Inactive%{T-} %time%
 
 [module/filesystem]
 type = internal/fs
@@ -169,7 +223,7 @@ label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
-format-foreground = #103B34
+format-foreground = ${colors.adventure-bg}
 
 ; focused = Active workspace on focused monitor
 label-focused = %index%
@@ -197,38 +251,38 @@ label-urgent-padding = 2
 ; label-separator = |
 
 
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 25
-label-song-ellipsis = true
-
 [module/xbacklight]
 type = internal/xbacklight
+# Available tags:
+;   <label> (default)
+;   <ramp>
+;   <bar>
+#format = <label>
 
-format = <label> <bar>
-label = BL
+; Available tokens:
+;   %percentage% (default)
+#label = %percentage%%
 
-format-background = #FDCB96
-format-foreground = #103B34
+
+format = <label>
+# <bar>
+label = "BL %percentage%%"
+format-padding = 1
+
+format-background = ${colors.laranja1}
+#FDCB96
+format-foreground = ${colors.verde4}
  
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #000
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
+#bar-width = 10
+#bar-indicator = |
+#bar-indicator-foreground = ${colors.adventure-bg}
+#bar-indicator-font = 2
+#bar-fill = ─
+#bar-fill-font = 2
+#bar-fill-foreground = #9f78e1
+#bar-empty = ─
+#bar-empty-font = 2
+#bar-empty-foreground = ${colors.verde1}
 
 [module/backlight-acpi]
 inherit = module/xbacklight
@@ -238,7 +292,8 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-background = #FEBAA3
+format-background = ${colors.laranja3}
+#FEBAA3
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
@@ -247,7 +302,8 @@ label = %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-background = #FEBAA3
+format-background = ${colors.laranja3}
+#FEBAA3
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
@@ -390,18 +446,19 @@ format-disconnected =
 type = internal/date
 interval = 1
 
-format-background = #FE9F8B
-format-foreground = #578D80
+format-background = ${colors.laranja3}
+#FE9F8B
+format-foreground = ${colors.verde4}
 
 date = 
 #" %Y-%m-%d"
 date-alt = " %Y-%m-%d"
 
-time = %H:%M
+time = "%H:%M "
 time-alt = %H:%M:%S
 
 format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.verde4}
 format-underline = #0a6cf5
 
 label = %date% %time%
@@ -479,27 +536,42 @@ interval = 5
 ;   <bar-volume>
 format-volume = <ramp-volume> <label-volume>
 
-format-volume-background = #FDCB96
+format-volume-background = ${colors.laranja2}
+#FDCB96
 ; Available tags:
 ;   <label-muted> (default)
 ;   <ramp-volume>
 ;   <bar-volume>
 ;format-muted = <label-muted>
 
-label-volume-foreground = #578D80
+label-volume-foreground = ${colors.verde4}
+#578D80
 ; Available tokens:
 ;   %percentage% (default)
-label-volume = "♪ %percentage%"
-
+label-volume = " %percentage%"
+format-muted-background = ${colors.laranja2} 
+#FDCB96
 ; Available tokens:
 ;   %percentage% (default)
-label-muted = 🔇 muted
-label-muted-foreground = #66
+#label-muted = 🔇 muted
+label-muted-font = 5
+label-muted = " 婢 "
+label-muted-foreground = ${colors.verde4}
+#578D80
+ramp-volume-foreground = ${colors.verde4}
+#578D80
 
+format-volume-padding = 1
+#label-volume-padding-right = 1
+
+#padding-left = 0
+#padding-right = 0
+#content-padding = 5
+#label-padding = 
 ; Only applies if <ramp-volume> is used
-ramp-volume-0 = 🔈
-ramp-volume-1 = 🔉
-ramp-volume-2 = 🔊
+ramp-volume-0 = " "
+ramp-volume-1 = " "
+ramp-volume-2 = " "
 
 ; If defined, it will replace <ramp-volume> when
 ; headphones are plugged in to `headphone_control_numid`
@@ -541,40 +613,47 @@ battery = BAT0
 adapter = ADP0
 full-at = 98
 
+#label-discharging-foreground = ${colors.adventure-bg}
+#label-charging-foreground = 
+# format-battery-padding = 5 
+format-charging-padding = 2
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = #ffb52a
 format-charging-background = #FE9F8B
-#format-charging-foreground = #103B34
+label-charging-foreground = ${colors.adventure-bg}
 
+format-discharging-padding = 2
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 format-discharging-background = #FE9F8B
-#format-discharging-foreground = #103B34
+label-discharging-foreground = ${colors.adventure-bg}
 
-format-full-prefix = " "
-format-full-prefix-foreground = ${colors.foreground-alt}
-#format-full-prefix-foreground = #000000 
+format-full-padding = 1
+format-full-prefix =  
+format-full-background = #FE9F8B
+format-full-prefix-foreground = ${colors.adventure-bg}
+label-full-foreground = ${colors.adventure-bg} 
 format-full-underline = ${self.format-charging-underline}
-format-full-prefix-background = #FE9F8B
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-foreground = ${colors.adventure-bg}
 #ramp-capacity-background = #FE9F8B
 
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
-animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-foreground = ${colors.adventure-bg}
 #animation-charging-foreground = #103B34
 animation-charging-framerate = 750
 #animation-charging-background = #FE9F8B
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-foreground = ${colors.foreground-alt}
+animation-discharging-0 = 
+animation-discharging-1 = 
+animation-discharging-2 = 
+animation-discharging-foreground = ${colors.adventure-bg}
 #animation-discharging-foreground = #103B34
 animation-discharging-framerate = 750
 #animation-discharging-background = #FE9F8B
@@ -601,7 +680,8 @@ ramp-foreground = ${colors.foreground-alt}
 [module/powermenu]
 type = custom/menu
 
-format-background = #FC7D84
+format-background = ${colors.laranja4}
+#FC7D84
 #format-foreground = #103B34
 
 expand-right = true
@@ -609,8 +689,8 @@ expand-right = true
 
 format-spacing = 1
 
-label-padding = 5
-label-open = "  "
+label-open-padding = 2
+label-open = 
 label-open-foreground = ${colors.secondary}
 label-close =  cancel
 label-close-foreground = ${colors.secondary}
