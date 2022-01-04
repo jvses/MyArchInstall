@@ -151,6 +151,7 @@ label-indicator-underline = ${colors.secondary}
 
 [module/bmo]
 type = custom/text
+click-left = ~/.config/rofi/launchers/slate/launcher.sh
 content-font = 7
 content = "  "
 #format-background = ${colors.verde1}
@@ -159,10 +160,14 @@ content-background = ${colors.verde1}
 content-foreground = ${colors.adventure-bg}
 content-padding = 1
 
-[module/bmo2]
+
+[module/coroa2]
 type = custom/text
-content = "  "
-content-font = 7
+click-left = ~/.config/rofi/launchers/slate/launcher.sh
+content-font = 6
+content = "  "
+#format-background = ${colors.verde1}
+#format-foreground = ${colors.adventure-bg}
 content-background = ${colors.verde1}
 content-foreground = ${colors.adventure-bg}
 content-padding = 1

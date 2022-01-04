@@ -84,6 +84,8 @@ bindsym $mod+d exec sh ~/.config/rofi/launchers/slate/launcher.sh
 bindsym $mod+m exec --no-startup-id menu_mpd
 bindsym $mod+n exec --no-startup-id ~/.config/rofi/bin/menu_network
 bindsym $mod+p exec --no-startup-id ~/.config/rofi/bin/menu_powermenu
+bindsym $mod+z exec --no-startup-id ~/.config/rofi/bin/menu_screenshot
+
 
 
 # change focus
@@ -145,8 +147,13 @@ bindsym $mod+a focus parent
 # Esconder título das janelas
 for_window [class="^.*"] border pixel 2
 
+# Centraliza o título das janelas
+#title_align left|center|right
+#title_align center
 
-
+#hide_edge_borders both
+#default_border pixel 3
+#hide_edge_borders horizontal
 
 
 # default gaps
@@ -353,9 +360,10 @@ set $bgcolor 		#568E81
 set $ibgcolor 		#182126
 set $textcolor		#D3FDE5
 set $ubgcolor		#FF787F
+set $bgcolor2		#103B34
 
 # class                 border		backgr. 	text    	indicator 
-client.focused          $bgcolor 	$bgcolor 	$textcolor 	$bgcolor   
+client.focused          $bgcolor2 	$bgcolor2 	$textcolor 	$bgcolor2   
 client.focused_inactive $ibgcolor 	$ibgcolor 	$textcolor 	$ibgcolor   
 client.unfocused        $ibgcolor 	$ibgcolor 	$textcolor 	$ibgcolor   
 client.urgent           $ubgcolor 	$ubgcolor 	$textcolor 	$ubgcolor 
@@ -383,7 +391,7 @@ exec_always feh --bg-scale --randomize ~/Imagens/Adventure/Wall1.jpg
 #exec_always --no-startup-id killall back4.sh 
 #exec_always --no-startup-id /home/joao/Programas/foo-Wallpaper-Feh-Gif/back4.sh 0.03 ~/Programas/foo-Wallpaper-Feh-Gif/gif/beautycity.gif
 
-#configuração do teclado br-abnt2
+# configuração do teclado br-abnt2
 exec_always setxkbmap -model abnt2 -layout br -variant abnt2
 
 # Assentando programas para áres de trabalho
@@ -400,6 +408,16 @@ for_window [class="TelegramDesktop"] move to workspace $ws4
 #bindsym Print exec scrot -e 'mv $f /tmp/ && gimp /tmp/$f'
 # scrot & gimp - select window or rectangle
 #bindsym Shift+Print exec scrot -s -e 'mv $f /tmp/ && gimp /tmp/$f'
+
+
+
+#interactive screenshot by pressing printscreen
+#bindsym Print exec scrot -z $HOME/Imagens/'Screenshot_%Y-%m-%d-%S_$wx$h.png'
+#crop-area screenshot by pressing Mod + printscreen
+#bindsym Shift+Print exec scrot -s $HOME/Imagens/'Screenshot_%Y-%m-%d-%S_$wx$h.png'
+# print da janela de foco
+#bindsym $mod+Shift+Print exec scrot -uz $HOME/Imagens/'Screenshot_%Y-%m-%d-%S_$wx$h.png'
+
 
 #Correção da fonte siji do polybar
 #exce_always --no-startup-id ~/fixpoly
