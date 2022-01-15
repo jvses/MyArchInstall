@@ -72,7 +72,7 @@ module-margin-right = 0
 font-0 = fixed:pixelsize=10;1
 #font-0 = Gloria Hallelujah:style=Regular:size=10;2
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+font-2 = siji:pixelsize=12;1
 font-3 = FontAwesome:size=12;2
 font-4 = Hack Nerd Font:style=Regular:size=12;2
 font-5 = adventure:size=15;2
@@ -87,18 +87,25 @@ font-7 = Gloria Hallelujah:style=Regular:size=10;1
 
 modules-left = bmo bspwm i3
 modules-center = xwindow
-modules-right = filesystem xbacklight alsa battery date powermenu
+modules-right = filesystem xbacklight pulseaudio battery date powermn
 # coisas que tirei da amostra padrão
-# pulseaudio xkeyboard memory cpu wlan eth date temperature mpd wireless-network
+# pulseaudio xkeyboard memory cpu wlan alsa eth date temperature mpd wireless-network
 # network
 
 #essas não funcionaram
 #module-separator = |
 #module-separator-foreground = #ff00ff
 
+# esse funcionou
+#separator = |
+#separator-background = ${colors.laranja1}
+
+
 tray-position = right
-tray-padding = 2
-tray-background = #FC7D84
+tray-padding = 1
+tray-background = ${colors.laranja4}
+#tray-foreground = ${colors.verde2}
+#FC7D84
 
 ;wm-restack = bspwm
 wm-restack = i3
@@ -466,17 +473,29 @@ format-prefix = 
 format-prefix-foreground = ${colors.verde4}
 format-underline = #0a6cf5
 
-label = %date% %time%
+label = %date% %time%
 
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
-label-volume = VOL %percentage%%
-label-volume-foreground = ${root.foreground}
+format-volume = <ramp-volume> <label-volume> 
+#<bar-volume>
+format-volume-padding = 1
+label-volume = %percentage%%
+#label-volume-foreground = ${root.foreground}
 
-label-muted = 🔇 muted
-label-muted-foreground = #666
+format-volume-background = ${colors.laranja2}
+label-volume-foreground = ${colors.verde4}
+
+label-muted-font = 5
+label-muted = " 婢 "
+label-muted-foreground = ${colors.verde4}
+label-muted-background = ${colors.laranja2}
+ramp-volume-foreground = ${colors.verde4}
+
+ramp-volume-0 = " "
+ramp-volume-1 = " "
+ramp-volume-2 = " "
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
@@ -553,7 +572,7 @@ label-volume-foreground = ${colors.verde4}
 #578D80
 ; Available tokens:
 ;   %percentage% (default)
-label-volume = " %percentage%"
+label-volume =  %percentage%
 format-muted-background = ${colors.laranja2} 
 #FDCB96
 ; Available tokens:
@@ -582,8 +601,8 @@ ramp-volume-2 = " "
 ; headphones are plugged in to `headphone_control_numid`
 ; If undefined, <ramp-volume> will be used for both
 ; Only applies if <ramp-volume> is used
-ramp-headphones-0 = 
-ramp-headphones-1 = 
+#ramp-headphones-0 = 
+#ramp-headphones-1 = 
 #type = internal/alsa
 
 #format-volume = <label-volume> <bar-volume>
@@ -682,20 +701,63 @@ ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
 
+[module/bmo2]
+type = custom/text
+click-left = ~/.config/rofi/launchers/slate/launcher.sh
+content-font = 7
+content = "  "
+#format-background = ${colors.verde1}
+#format-foreground = ${colors.adventure-bg}
+content-background = ${colors.verde1}
+content-foreground = ${colors.adventure-bg}
+content-padding = 1
+
+
+[module/coroa3]
+type = custom/text
+click-left = ~/.config/rofi/launchers/slate/launcher.sh
+content-font = 6
+content = "  "
+#format-background = ${colors.verde1}
+#format-foreground = ${colors.adventure-bg}
+content-background = ${colors.verde1}
+content-foreground = ${colors.adventure-bg}
+content-padding = 1
+
+[module/coroa4]
+type = custom/text
+#label-active = %token%
+
+; This tells the bar to use Roboto when rendering the label
+label-active-font = 7
+label-active = "  "
+; Using raw formatting tags, you can mix fonts.
+; %{T3} tells the bar to use Noto Sans and %{T-} resets it to default.
+label-inactive = %{T3}Inactive%{T-} %time%
+[module/powermn]
+type = custom/text
+content-font = 4
+content = 
+content-background = ${colors.laranja4}
+content-foreground = ${colors.verde4}
+content-padding = 2
+click-left = ~/.config/rofi/bin/applet_powermenu
+
+
 [module/powermenu]
 type = custom/menu
 
 format-background = ${colors.laranja4}
 #FC7D84
 #format-foreground = #103B34
-
+# click-right = ~/.config/rofi/launchers/slate/launcher.sh
 expand-right = true
 
 
 format-spacing = 1
 
 label-open-padding = 2
-label-open = 
+label-open = " "
 label-open-foreground = ${colors.secondary}
 label-close =  cancel
 label-close-foreground = ${colors.secondary}

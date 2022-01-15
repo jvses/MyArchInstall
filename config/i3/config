@@ -61,6 +61,7 @@ floating_modifier $mod
 #bindsym $mod+Return exec i3-sensible-terminal
 #bindsym $mod+Return exec termite
 bindsym $mod+Return exec terminator
+bindsym $mod+t exec kitty
 
 # kill focused window
 #bindsym $mod+Shift+q kill
@@ -70,7 +71,7 @@ bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+d exec --no-startup-id dmenu_run
-#bindsym $mod+d exec rofi -show run -show-icons
+#bindsym $mod+o exec rofi -show run -show-icons
 bindsym $mod+d exec sh ~/.config/rofi/launchers/slate/launcher.sh
 #bindsym $mod+d exec sh ~/.config/rofi/launchers/misc/launcher.sh
 
@@ -145,11 +146,11 @@ bindsym $mod+a focus parent
 
 
 # Esconder título das janelas
-for_window [class="^.*"] border pixel 2
+ for_window [class="^.*"] border pixel 2
 
 # Centraliza o título das janelas
 #title_align left|center|right
-#title_align center
+title_align center
 
 #hide_edge_borders both
 #default_border pixel 3
@@ -378,14 +379,14 @@ client.urgent           $ubgcolor 	$ubgcolor 	$textcolor 	$ubgcolor
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 #bar {
-#        status_command i3blocks -c /home/joao/.config/i3blocks/i3blocks.conf
+       # status_command i3blocks -c /home/joao/.config/i3blocks/i3blocks.conf
 #	status_command i3tatus
 #	position top
 #}
 
 #Colocando o BackGround
 #exec_always feh --bg-scale --randomize ~/Imagens/Wallpapers/*
-exec_always feh --bg-scale --randomize ~/Imagens/Adventure/Wall1.jpg
+exec_always feh --bg-scale --randomize ~/img/Adventure/Wall1.jpg
 #exec_always feh --bg-scale ~/Imagens/Adventure/balck.jpeg
 #exec_always feh --bg-scale --randomize ~/Imagens/Wallpapers/gifs/Wall5.gif
 #exec_always --no-startup-id killall back4.sh 
@@ -396,7 +397,7 @@ exec_always setxkbmap -model abnt2 -layout br -variant abnt2
 
 # Assentando programas para áres de trabalho
 for_window [class="Brave-browser"] move to workspace $ws1
-for_window [class="Terminator"] move to workspace $ws2
+# for_window [class="Terminator"] move to workspace $ws2
 for_window [class="Termite"] move to workspace $ws2
 for_window [class="Thunar"] move to workspace $ws3
 for_window [class="Slack"] move to workspace $ws4
