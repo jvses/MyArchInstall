@@ -1,4 +1,4 @@
-https://github.com/dctxmei/rofi-themes
+https://github.com/adi1090x/rofi
 https://github.com/jvses/MyArchInstall.git
 https://aur.archlinux.org/paru.git
 https://aur.archlinux.org/yay.git

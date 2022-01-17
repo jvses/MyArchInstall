@@ -287,12 +287,12 @@ mode "$mode_gaps_left" {
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1. Internet"
-set $ws2 "2. Terminal"
-set $ws3 "3. Arquivos"
-set $ws4 "4. | | | "
-set $ws5 "5. Video"
-set $ws6 "6. Minecraft"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -386,14 +386,11 @@ client.urgent           $ubgcolor 	$ubgcolor 	$textcolor 	$ubgcolor
 
 #Colocando o BackGround
 #exec_always feh --bg-scale --randomize ~/Imagens/Wallpapers/*
-exec_always feh --bg-scale --randomize ~/img/Adventure/Wall1.jpg
+exec_always feh --bg-scale --randomize ~/img/Adventure/Wall3.png
 #exec_always feh --bg-scale ~/Imagens/Adventure/balck.jpeg
 #exec_always feh --bg-scale --randomize ~/Imagens/Wallpapers/gifs/Wall5.gif
 #exec_always --no-startup-id killall back4.sh 
 #exec_always --no-startup-id /home/joao/Programas/foo-Wallpaper-Feh-Gif/back4.sh 0.03 ~/Programas/foo-Wallpaper-Feh-Gif/gif/beautycity.gif
-
-# configuração do teclado br-abnt2
-exec_always setxkbmap -model abnt2 -layout br -variant abnt2
 
 # Assentando programas para áres de trabalho
 for_window [class="Brave-browser"] move to workspace $ws1
@@ -422,6 +419,9 @@ for_window [class="TelegramDesktop"] move to workspace $ws4
 
 #Correção da fonte siji do polybar
 #exce_always --no-startup-id ~/fixpoly
+
+# configuração do teclado br-abnt2
+exec_always setxkbmap -model abnt2 -layout br -variant abnt2 &
 
 
 # Execução do Polybar
