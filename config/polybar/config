@@ -87,7 +87,8 @@ font-7 = Gloria Hallelujah:style=Regular:size=10;1
 ;   font-2 = Termsynu:size=8;-1
 ;   font-3 = FontAwesome:size=10
 
-modules-left = bmo i3 espace1 espace2
+modules-left = bmo i3 memory cpu filesystem
+# espace1 espace2
 modules-center = xwindow
 modules-right = xbacklight pulseaudio battery date powermn
 # coisas que tirei da amostra padrão
@@ -157,7 +158,7 @@ type = internal/xwindow
 ; This tells the bar to use Gloria Halleluja when rendering the label
 label-font = 8
 
-label = " %title:0:30:...%"
+label = " %title:0:30:...% "
 #format-background = #103B34
 format-foreground = ${colors.verde1}
 format-prefix-foreground = ${colors.foreground-alt}
@@ -185,7 +186,7 @@ label-indicator-underline = ${colors.secondary}
 type = custom/text
 click-left = ~/.config/rofi/launchers/slate/launcher.sh
 content-font = 7
-content = "  "
+content = "  "
 #format-background = ${colors.verde1}
 #format-foreground = ${colors.adventure-bg}
 content-background = ${colors.verde1}
@@ -206,7 +207,7 @@ content-padding = 1
 
 [module/coroa]
 type = custom/text
-content = 
+content = 
 
 
 
@@ -237,6 +238,7 @@ wrapping-scroll = true
 #ws-icon-2 = 3;
 #ws-icon-3 = 4;
 #ws-icon-4 = 5;
+#ws-icon-6 = 7;
 # ws-icon-default = 
 ; NOTE: You cannot skip icons, e.g. to get a ws-icon-6
 ; you must also define a ws-icon-5.
@@ -323,22 +325,26 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-background = ${colors.laranja3}
+format-background = ${colors.verde4}
 #FEBAA3
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #f90000
+format-prefix = " "
+format-prefix-foreground = ${colors.verde1}
+#format-underline = #f90000
 label = %percentage:2%%
+label-foreground = ${colors.verde1}
+format-padding = 1
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-background = ${colors.laranja3}
+format-background = ${colors.verde3}
 #FEBAA3
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
+format-prefix = " "
+format-prefix-foreground = ${colors.verde1}
+#format-underline = #4bffdc
 label = %percentage_used%%
+label-foreground = ${colors.verde1}
+format-padding = 1
 
 [module/wlan]
 type = internal/network
@@ -716,7 +722,7 @@ content-padding = 1
 type = custom/text
 click-left = ~/.config/rofi/launchers/slate/launcher.sh
 content-font = 6
-content = "  "
+content = "  "
 #format-background = ${colors.verde1}
 #format-foreground = ${colors.adventure-bg}
 content-background = ${colors.verde1}
