@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=DWM
+Comment=DWM
+Exec=dwm
+Icon=dwm
+Type=XSession
