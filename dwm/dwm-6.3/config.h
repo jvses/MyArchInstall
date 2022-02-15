@@ -74,33 +74,38 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 //static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", NULL };
 static const char *termcmd[]  = { "st", NULL };
 
+//Vou deixar a maioria das teclas semelhantes com o que eu tinha no i3
+//mas vou manter muito do padrão do dwm
+//
+//
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
-	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} },
-	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_b,      togglebar,      {0} }, //esconde/mostra a barra
+	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } }, //desce o stack de foco
+	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } }, //sobe o stack de foco
+	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } }, //puxa stack para a master
+	{ MODKEY,                       XK_r,      incnmaster,     {.i = -1 } }, //tira o master e manda pro stack
+	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },// puxa os stack para a esquerda diminuindo a master
+	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },//puxa os stacks para a direita aumentado a master
+	{ MODKEY|ShiftMask,                       XK_Return, zoom,           {0} }, // troca o stack selecionado com a master
+	{ MODKEY,                       XK_Tab,    view,           {0} }, // troca com o workspace anterior
+	{ MODKEY,           		XK_q,      killclient,     {0} }, // fecha a tela selecionada
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, // aplica master/stack(M/S) comum
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} }, // aplica float para tudo que dropar
+	{ MODKEY,                       XK_g,      setlayout,      {.v = &layouts[2]} }, // Maximiza todas as telas 
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} }, // aplica M/S com master centralizada
+	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} }, // aplica M/S com master flutuante 
+	{ MODKEY,                       XK_space,  setlayout,      {0} }, // troca para o modelo de stack anterior
+	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} }, // faz a tela virar flutuante
+	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } }, // Coloca pra ver tudo aberto numa tela só
+	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } }, //pega a janela que vc está selecionando e arrasta pra onde vc ir
+	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } }, //não sei
+	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } }, //não sei
+	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } }, //não sei
+	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } }, //não sei
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

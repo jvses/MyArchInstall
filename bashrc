@@ -20,6 +20,7 @@ alias imv-folder='devour imv-folder'
 alias imv='devour imv'
 alias dzat='devour zathura'
 alias sxiv='devour sxiv'
+alias facul='cd /home/joao/doc/Aulas/2021.2'
 
 alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
