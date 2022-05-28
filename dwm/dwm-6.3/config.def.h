@@ -11,8 +11,9 @@ static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display systray on the first monitor, False: display systray on the last monitor*/
 static const int showsystray        = 1;     /* 0 means no systray */
 
-static const char *fonts[]          = {"adventure:size=14","Hack Nerd Font:style=Regular:pixelsize=14:antialias=true:autohint=true"};
+static const char *fonts[]          = {"Hack Nerd Font:style=Regular:pixelsize=16:antialias=true:autohint=true"};
 //"Gloria Hallelujah:style=Regular:size=10"
+//"adventure:size=14"
 static const char dmenufont[]       = "monospace:size=10";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -31,7 +32,9 @@ static const char col_urgborder[]   = "#ff0000";
 
 /* tagging */
 //static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-static const char *tags[] = { "", "", "", "", "", "", "7", "8", "9" };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+//
+//static const char *tags[] = { "", "", "", "", "", "", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
