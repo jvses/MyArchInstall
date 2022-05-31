@@ -55,5 +55,8 @@ super + shift + u
 
 
 
+## O dwmblocks
 
+* https://github.com/torrinfail/dwmblocks
 
+* Explorando meus scripts
