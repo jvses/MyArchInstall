@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+rm -vr orig
+mv -v red/* .
+rmdir red
+rename '.mp4-red' '' *.mp4
+

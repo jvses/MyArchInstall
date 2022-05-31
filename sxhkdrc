@@ -1,0 +1,32 @@
+# Reload functions
+#super + Escape
+#	"$XDG_CONFIG_HOME"/sxhkd/functions
+# The valid modifier names are: super, hyper, meta,
+#  alt, control, ctrl, shift, mode_switch, lock, 
+#  mod1, mod2, mod3, mod4, mod5 and any.
+
+#super + ctrl + Return
+#	  terminato
+alt + x
+	~/.config/scripts/lock && systemctl suspend
+#	amixer set Master mute && ~/.config/scripts/lock && systemctl suspend
+super + x
+	~/.config/scripts/lock
+super + a
+	rofi -no-lazy-grab -show drun -modi drun
+super + p
+	~/.config/rofi/bin/menu_powermenu
+super + n
+	~/.config/rofi/bin/menu_network
+super + e
+	~/.config/rofi/bin/applet_battery
+super + z 
+	~/.config/rofi/bin/menu_screenshot
+super + c 
+	~/.config/rofi/bin/launcher_slate
+super + s
+	~/.config/rofi/bin/applet_backlight
+#super + x
+#	i3lock
+#super + w
+#	pkill -USR1 -x sxhkd

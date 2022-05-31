@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+nome='João Vitor'
+idade='21'
+residencia="no setor de chácaras do Pedregal"
+trabalho="entregador de gás da Ultra gás"
+hora_em_casa="sete"
+
+
+
+echo "Meu nome é $nome. Tenho $idade anos. Minha casa fica $residencia,
+ onde todas as casas estão, e eu não sou casado. Eu trabalho como $trabalho e chego em casa todos os dias às oito da noite, no máximo."
+
+ # acréscimo de comentário para testar hard link

@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+rm -v *.jpg
+
+for i in *.mp4;
+do ffmpeg -i $i -vcodec libx264 -crf 29 "$i-red.mp4";
+done
+
+mkdir orig red
+
+mv *red.mp4 red/
+mv *.mp4 orig/
+
+date
+
+du -sh * 

@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+#comentario
+
+bate=$(acpi | awk -F ' ' '{print$ 4}' | tr -d \%,)
+estado=$(acpi | awk -F ' ' '{print$ 3}' | tr -d \,)
+
+case $estado in
+	Full)
+		icon=""
+		;;
+	Discharging)
+		if [[ $bate -ge 1 ]] && [[ $bate -le 10 ]]; then
+			icon=""
+		elif [[ $bate -ge 11 ]] && [[ $bate -le 20 ]]; then
+			icon=""
+		elif [[ $bate -ge 21 ]] && [[ $bate -le 30 ]]; then
+			icon=""
+		elif [[ $bate -ge 31 ]] && [[ $bate -le 40 ]]; then
+			icon=""
+		elif [[ $bate -ge 41 ]] && [[ $bate -le 50 ]]; then
+			icon=""
+		elif [[ $bate -ge 51 ]] && [[ $bate -le 60 ]]; then
+			icon=""
+		elif [[ $bate -ge 61 ]] && [[ $bate -le 70 ]]; then
+			icon=""
+		elif [[ $bate -ge 71 ]] && [[ $bate -le 80 ]]; then
+			icon=""
+		elif [[ $bate -ge 81 ]] && [[ $bate -le 90 ]]; then
+			icon=""
+		elif [[ $bate -ge 91 ]] && [[ $bate -le 100 ]]; then
+			icon=""
+		fi
+		;;
+	Charging)
+		if [[ $bate -ge 1 ]] && [[ $bate -le 20 ]]; then
+			icon=""
+		elif [[ $bate -ge 21 ]] && [[ $bate -le 40 ]]; then
+			icon=""
+		elif [[ $bate -ge 41 ]] && [[ $bate -le 50 ]]; then
+			icon=""
+		elif [[ $bate -ge 51 ]] && [[ $bate -le 60 ]]; then
+			icon=""
+		elif [[ $bate -ge 61 ]] && [[ $bate -le 70 ]]; then
+			icon=""
+		elif [[ $bate -ge 71 ]] && [[ $bate -le 80 ]]; then
+			icon=""
+		elif [[ $bate -ge 81 ]] && [[ $bate -le 90 ]]; then
+			icon=""
+		elif [[ $bate -ge 91 ]] && [[ $bate -le 100 ]]; then
+			icon=""
+		fi
+		;;
+esac
+# Depois acrescentar o que fazer para o estado Unknown
+
+
+echo "$icon $bate%"

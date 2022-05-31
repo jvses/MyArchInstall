@@ -23,8 +23,28 @@
 ### SXHKD (Simple X Hot Key Daemon)
 
 * Instalação
-* Funcionamento básico
 * Colocando teclas de atalho
+* Funcionamento básico
+
+````shell
+super + shift + i
+	inkscape
+````
+* Reduzindo o tamanho dos atalhos
+
+````shell
+super + shift + {i,g,f,s}
+	{inkscape,gedit,firefox,st}
+````
+
+* Executando scripts
+
+````
+super + shift + u
+	~/scripts/UPdatedwm
+````
+
+
 
 
 
