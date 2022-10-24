@@ -73,7 +73,7 @@ bindsym $mod+q kill
 bindsym $mod+d exec --no-startup-id dmenu_run
 #bindsym $mod+o exec rofi -no-lazy-grab -show drun -modi drun 
 #bindsym $mod+o exec rofi -show run -show-icons
-bindsym $mod+c exec sh ~/.config/rofi/launchers/slate/launcher.sh
+#bindsym $mod+c exec sh ~/.config/rofi/launchers/slate/launcher.sh
 #bindsym $mod+d exec sh ~/.config/rofi/launchers/misc/launcher.sh
 
 # A more modern dmenu replacement is rofi:
@@ -83,10 +83,10 @@ bindsym $mod+c exec sh ~/.config/rofi/launchers/slate/launcher.sh
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # Mais aplicações da customização do rofi
-bindsym $mod+m exec --no-startup-id menu_mpd
-bindsym $mod+n exec --no-startup-id ~/.config/rofi/bin/menu_network
-bindsym $mod+p exec --no-startup-id ~/.config/rofi/bin/menu_powermenu
-bindsym $mod+z exec --no-startup-id ~/.config/rofi/bin/menu_screenshot
+#bindsym $mod+m exec --no-startup-id menu_mpd
+#bindsym $mod+n exec --no-startup-id ~/.config/rofi/bin/menu_network
+#bindsym $mod+p exec --no-startup-id ~/.config/rofi/bin/menu_powermenu
+#bindsym $mod+z exec --no-startup-id ~/.config/rofi/bin/menu_screenshot
 
 
 
@@ -427,3 +427,6 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh &
 # Windows Compositor
 exec_always picom -f &
 #exec_always picom --shadow-opacity=1
+
+#sxhkd
+exec_always sxhkd &
