@@ -30,7 +30,7 @@ alias dvince='devour evince'
 #alias imv='devour imv'
 #alias dzat='devour zathura'
 #alias sxiv='devour sxiv'
-alias facul='cd /home/joao/doc/Aulas/2022.1 && ranger'
+alias facul='cd /home/joao/doc/Aulas/2022.2 && ranger'
 alias dwmstart='vim ~/.local/share/dwm/autostart.sh'
 alias chagelivebg='xwinwrap -g 1366x768+0+0 -ov -ni -s -nf -- mpv --vo=gpu --no-audio --no-border --no-config --no-window-dragging --no-input-default-bindings --no-osd-bar --no-sub --loop --wid=%WID'
 
